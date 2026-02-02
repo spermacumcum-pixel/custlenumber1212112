@@ -194,6 +194,8 @@
         <button class="filter-btn" onclick="filterItems('outerwear')">Outerwear</button>
         <button class="filter-btn" onclick="filterItems('pants')">Pants</button>
         <button class="filter-btn" onclick="filterItems('accessories')">Acc</button>
+        <button class="filter-btn" onclick="filterItems('sold')">Sold</button>
+       
     </div>
 
     <div class="grid" id="main-grid"></div>
@@ -229,48 +231,131 @@
 
     const data = { /* --- ТВОЇ ТОВАРИ БЕЗ ЗМІН --- */
 ua:{info_title:"ІНФОРМАЦІЯ",info_text:"📦 Доставка: ~14 днів. 🌍 WorldWide. ❌ Повернення немає. Для замовлення — пишіть у Direct.",order:"Написати в Direct",items:[
-{id:1,cat:'shoes',name:'Archive New Rock "Steel" Edition',desc:'Iconic archive footwear.',img:'newrock.jpg',images: ['newrock222.jpg','newrock.jpg' ],price:'9999€',isSale:false},
-{id:2,cat:'hoodie',name:'Destroyed Heavy Hoodie v1',desc:'Надміцне худі з унікальним кроєм.',img:'hoodie1.jpg',price:'9999₴',isSale:false},
-{id:3,cat:'hoodie',name:'Vortex Hoodie',desc:'Ексклюзивне худі з високою щільністю.',img:'hoodie2.jpg',price:'9999₴',isSale:false},
-{id:4,cat:'hoodie',name:'Grey Hoodie',desc:'Архівне худі, від якого всі вороги здуріють.',img:'jacket.jpg',price:'9999₴',isSale:false},
-{id:5,cat:'hoodie',name:'Acme De La Vie',desc:'Вінтажне унікальне худі.',img:'hoodie3.jpg',price:'9999₴',isSale:false},
-{id:6,cat:'outerwear',name:'Extrem Jacket',desc:'Архівний бомбер з принтом спереду і ззаду.',img:'jacket2.jpg',price:'9999₴',isSale:false},
-{id:7,cat:'outerwear',name:'White Jacket',desc:'Архівна курточка білого кольору.',img:'jacket3.jpg',price:'9999₴',isSale:false},
-{id:8,cat:'outerwear',name:'NEFOR Jacket',desc:'Архівна курточка з білим принтом.',img:'jacket4.jpg',price:'9999₴',isSale:false},
-{id:9,cat:'shoes',name:'Girl shoes',desc:'Baby archive shoes.',img:'shoes.jpg',price:'9999₴',isSale:false},
-{id:10,cat:'shoes',name:'Girl shoes black',desc:'Baby archive shoes black.',img:'shoes2.jpg',price:'9999₴',isSale:false},
-{id:11,cat:'outerwear',name:'Alyaska jacket',desc:'Аляска бомбер.',img:'jacket5.jpg',price:'9999₴',isSale:false},
-{id:12,cat:'hoodie',name:'Black hoodies',desc:'Вінтажне унікальне худі.',img:'hoodie4.jpg',price:'9999₴',isSale:false},
-{id:13,cat:'hoodie',name:'Visulka White',desc:'Вінтажне унікальне худі.',img:'hoodie5.jpg',price:'9999₴',isSale:false},
-{id:14,cat:'hoodie',name:'Archive Black hoodie',desc:'Вінтажне унікальне худі.',img:'hoodie6.jpg',price:'9999₴',isSale:false},
-{id:15,cat:'accessories',name:'Shapka',desc:'Вінтажний головний убір.',img:'acc1.jpg',price:'9999₴',isSale:false},
-{id:16,cat:'accessories',name:'LCE Costume',desc:'Вінтажний кастомний набір.',img:'acc2.jpg',price:'9999₴',isSale:false},
-{id:17,cat:'accessories',name:'Archive Cap',desc:'Вінтажна кепка.',img:'cap1.jpg',price:'9999₴',isSale:false},
-{id:18,cat:'pants',name:'Black Pants',desc:'Архівні штани вільного крою.',img:'pants1.jpg',price:'9999₴',isSale:false},
-{id:19,cat:'pants',name:'Tech Pants 223',desc:'Штани з функціональними деталями.',img:'pants2.jpg',price:'9999₴',isSale:false},
-{id:20,cat:'pants',name:'White Pants',desc:'Вінтажні білі штани.',img:'pants3.jpg',price:'999₴',isSale:true}
+{id:1,cat:'shoes',name:'Spicked New Rocks',desc:'Size-45.',extra:`Size-45/new.`,img:'newrock.jpg',images: ['newrock222.jpg','newrock.jpg' ],price:'144€',isSale:false},
+{id:2,cat:'hoodie',name:'Destroyed Heavy Hoodie v1',desc:'666999.',extra:`size: m
+condition: new.`,img:'hoodie1.jpg',price:'56€',isSale:true},
+{id:3,cat:'hoodie',name:'URRRGE zip-hoodie',desc:'Ексклюзивне худі',extra:`Size S-XL
+condition-NEW.`,img:'hoodie2.jpg',price:'56€',isSale:false},
+{id:4,cat:'hoodie',name:'thug Club full zip hoodie',desc:'Архівне худі, від якого всі вороги здуріють.',extra:`size: m
+condition: new.`,img:'jacket.jpg',price:'71€',isSale:false},
+{id:5,cat:'hoodie',name:'Acme De La Vie',desc:'Вінтажне унікальне худі.',extra:`size : s-l
+condition: new.`,img:'hoodie3.jpg',price:'75€',isSale:false},
+{id:6,cat:'outerwear',name:'Ice fur bomber',desc:'Архівний бомбер з принтом спереду і ззаду.',extra:`size : s-xl
+condition: new.`,img:'jacket2.jpg',price:'129€',isSale:false},
+{id:7,cat:'outerwear',name:'rabelwave jacket',desc:'Архівна курточка білого кольору.',extra:`size : s-xl
+condition: new.`,img:'jacket3.jpg',price:'135€',isSale:false},
+{id:8,cat:'outerwear',name:'5stripes bomber',desc:'Архівна курточка з білим принтом.',extra:`size : s-xl
+condition: new.`,img:'jacket4.jpg',price:'95€',isSale:false},
+{id:9,cat:'shoes',name:'no e mosen snickers',desc:'no e mosen snickers.',extra:`size : 35-40
+condition: new
+price: 104€.`,img:'shoes.jpg',price:'104€',isSale:false},
+{id:10,cat:'shoes',name:'no e mosen snickers/2',desc:'no e mosen snickersk.',extra:`size : 35-40
+condition: new
+price: 104€.`,img:'shoes2.jpg',price:'104€',isSale:false},
+{id:11,cat:'outerwear',name:'lightinus fur jacket',desc:'size-S/M/L/XL.',extra:`size : S-Xl
+condition: new
+price : 88€.`,img:'jacket5.jpg',price:'88€',isSale:false},
+{id:12,cat:'hoodie',name:'detw fur long',desc:'Вінтажне унікальне худі.',extra:`size : s-xl
+condition: new.`,img:'hoodie4.jpg',price:'58€',isSale:false},
+{id:13,cat:'hoodie',name:'no e mosen long',desc:'Вінтажне унікальне худі.',extra:`size : s-xl
+condition: new.`,img:'hoodie5.jpg',price:'52€',isSale:false},
+{id:14,cat:'hoodie',name:'London fur zip hoodie',desc:'Вінтажне унікальне худі.',extra:`size : m,l
+condition: new.`,img:'hoodie6.jpg',price:'55€',isSale:false},
+{id:15,cat:'accessories',name:'sexxdevil hat',desc:'Вінтажний головний убір.',extra:`onesize
+condition: new.`,img:'shap1.jpg',images: ['shap2.jpg','acc1.jpg' ],price:'32€',isSale:false},
+{id:16,cat:'accessories',name:'LCE Costume',desc:'Вінтажний набір.',extra:`zipper
+size : S-Xl
+condition : new
+price : 88€
+swears
+size : s-xl
+condition : new
+price : 75€.`,img:'acc2.jpg',price:'88€/75€',isSale:false},
+{id:17,cat:'accessories',name:'ED HARDY Cap',desc:'Вінтажна кепка.', extra:`Size-one
+Condition-NEW.`,img:'cap1.jpg',price:'25€',isSale:false},
+{id:18,cat:'pants',name:'Black Pocket Pants',desc:'Архівні штани.',extra:`size : S-xl
+condition: new.`,img:'pants1.jpg',price:'72€',isSale:false},
+{id:19,cat:'pants',name:'Thewet double waiste pants',desc:'Штани з функціональними деталями.', extra:`size : s-xl
+condition: new.`,img:'pants2.jpg',price:'119€',isSale:false},
+{id:20,cat:'pants',name:'peoplesense double waist swears',desc:'Вінтажні білі штани.', extra:`size : s-xl
+condition: new.`,img:'pants3.jpg',price:'105€',isSale:false},
+{id:21,cat:'accessories',name:'chai music costume',desc:'Size: S–XL.',
+extra:`Zipper 79€.
+Sizes: S–XL.
+Condition: new.
+Swear 75€.
+Sizes: S–XL.
+Condition: new.
+Details: music costume.`,img:'zipp3.jpg',images: ['zipp3.jpg','zipp2.jpg','zipp1.jpg' ],price:'79/75€',isSale:false},
+{id:22,cat:'pants',name:'mirror swears',desc:'Вінтажні штани.',extra:`size : s-xl
+condition: s,m, xI-new
+1-8/10
+price: size 1-35€
+size s,m, xI-69€.`,img:'pants4.jpg',price:'35€',isSale:true}
 ]},
-en:{info_title:"INFORMATION",info_text:"📦 Shipping: ~14 days. 🌍 WorldWide. ❌ No returns. Order via Direct.",order:"Contact via Direct",items:[
-{id:1,cat:'shoes',name:'Archive New Rock "Steel" Edition',desc:'Iconic archive footwear.',img:'newrock.jpg',images: ['newrock222.jpg','newrock.jpg' ],price:'9999€',isSale:false},
-{id:2,cat:'hoodie',name:'Destroyed Heavy Hoodie v1',desc:'Ultra-heavy hoodie with a unique cut.',img:'hoodie1.jpg',price:'9999€',isSale:false},
-{id:3,cat:'hoodie',name:'Vortex Hoodie',desc:'Exclusive high-density hoodie.',img:'hoodie2.jpg',price:'9999€',isSale:false},
-{id:4,cat:'hoodie',name:'Grey hoodie',desc:'Archive hoodie for u.',img:'jacket.jpg',price:'9999€',isSale:false},
-{id:5,cat:'hoodie',name:'Acme De La Vie',desc:'Vintage unique hoodie.',img:'hoodie3.jpg',price:'9999€',isSale:false},
-{id:6,cat:'outerwear',name:'Extrem Jacket',desc:'Archive bomber with prints.',img:'jacket2.jpg',price:'9999€',isSale:false},
-{id:7,cat:'outerwear',name:'White Jacket',desc:'Archive jacket in white.',img:'jacket3.jpg',price:'9999€',isSale:false},
-{id:8,cat:'outerwear',name:'NEFOR Jacket',desc:'Archive jacket with white print.',img:'jacket4.jpg',price:'9999€',isSale:false},
-{id:9,cat:'shoes',name:'Girl shoes',desc:'Archive baby shoes.',img:'shoes.jpg',price:'9999€',isSale:false},
-{id:10,cat:'shoes',name:'Girl shoes black',desc:'Archive baby shoes black.',img:'shoes2.jpg',price:'9999€',isSale:false},
-{id:11,cat:'outerwear',name:'Alyaska jacket',desc:'Alyaska bomber.',img:'jacket5.jpg',price:'9999€',isSale:false},
-{id:12,cat:'hoodie',name:'Black hoodies',desc:'Vintage unique hoodie.',img:'hoodie4.jpg',price:'9999€',isSale:false},
-{id:13,cat:'hoodie',name:'Visulka White',desc:'Vintage unique hoodie.',img:'hoodie5.jpg',price:'9999€',isSale:false},
-{id:14,cat:'hoodie',name:'Archive Black hoodie',desc:'Vintage unique hoodie.',img:'hoodie6.jpg',price:'9999€',isSale:false},
-{id:15,cat:'accessories',name:'Shapka',desc:'Vintage headwear.',img:'acc1.jpg',price:'9999€',isSale:false},
-{id:16,cat:'accessories',name:'LCE Costume',desc:'Vintage custom set.',img:'acc2.jpg',price:'9999€',isSale:false},
-{id:17,cat:'accessories',name:'Archive Cap',desc:'Vintage cap.',img:'cap1.jpg',price:'9999€',isSale:false},
-{id:18,cat:'pants',name:'Black Pants',desc:'Archive loose fit pants.',img:'pants1.jpg',price:'9999€',isSale:false},
-{id:19,cat:'pants',name:'Tech Pants 223',desc:'Functional detail pants.',img:'pants2.jpg',price:'9999€',isSale:false},
-{id:20,cat:'pants',name:'White Pants',desc:'Vintage white pants.',img:'pants3.jpg',price:'999€',isSale:true}
+en:{info_title:"INFORMATION",info_text:"📦 Shipping: ~14 days. 🌍 WorldWide. ❌ No returns. Order via Direct. UKRAINE.",order:"Contact via Direct",items:[
+{id:1,cat:'shoes',name:'Spicked New Rocks',desc:'Size-45.',extra:`Size-45/new.`,img:'newrock.jpg',images: ['newrock222.jpg','newrock.jpg' ],price:'144€',isSale:false},
+{id:2,cat:'hoodie',name:'Destroyed Heavy Hoodie v1',desc:'666999.',extra:`size: m
+condition: new.`,img:'hoodie1.jpg',price:'56€',isSale:true},
+{id:3,cat:'hoodie',name:'URRRGE zip-hoodie',desc:'hoodie',extra:`Size S-XL
+condition-NEW.`,img:'hoodie2.jpg',price:'56€',isSale:false},
+{id:4,cat:'hoodie',name:'thug Club full zip hoodie',desc:'Hoodie .',extra:`size: m
+condition: new.`,img:'jacket.jpg',price:'71€',isSale:false},
+{id:5,cat:'hoodie',name:'Acme De La Vie',desc:'Hoodie.',extra:`size : s-l
+condition: new.`,img:'hoodie3.jpg',price:'75€',isSale:false},
+{id:6,cat:'outerwear',name:'Ice fur bomber',desc:'Arhive bomber.',extra:`size : s-xl
+condition: new.`,img:'jacket2.jpg',price:'129€',isSale:false},
+{id:7,cat:'outerwear',name:'rabelwave jacket',desc:'arhive jacket.',extra:`size : s-xl
+condition: new.`,img:'jacket3.jpg',price:'135€',isSale:false},
+{id:8,cat:'outerwear',name:'5stripes bomber',desc:'white print arhive.',extra:`size : s-xl
+condition: new.`,img:'jacket4.jpg',price:'95€',isSale:false},
+{id:9,cat:'shoes',name:'no e mosen snickers',desc:'no e mosen snickers.',extra:`size : 35-40
+condition: new
+price: 104€.`,img:'shoes.jpg',price:'104€',isSale:false},
+{id:10,cat:'shoes',name:'no e mosen snickers/2',desc:'no e mosen snickersk.',extra:`size : 35-40
+condition: new
+price: 104€.`,img:'shoes2.jpg',price:'104€',isSale:false},
+{id:11,cat:'outerwear',name:'lightinus fur jacket',desc:'size-S/M/L/XL.',extra:`size : S-Xl
+condition: new
+price : 88€.`,img:'jacket5.jpg',price:'88€',isSale:false},
+{id:12,cat:'hoodie',name:'detw fur long',desc:'hoodie.',extra:`size : s-xl
+condition: new.`,img:'hoodie4.jpg',price:'58€',isSale:false},
+{id:13,cat:'hoodie',name:'no e mosen long',desc:'hoodie.',extra:`size : s-xl
+condition: new.`,img:'hoodie5.jpg',price:'52€',isSale:false},
+{id:14,cat:'hoodie',name:'London fur zip hoodie',desc:'hoodie.',extra:`size : m,l
+condition: new.`,img:'hoodie6.jpg',price:'55€',isSale:false},
+{id:15,cat:'accessories',name:'sexxdevil hat',desc:'',extra:`onesize
+condition: new.`,img:'shap1.jpg',images: ['shap2.jpg','acc1.jpg' ],price:'32€',isSale:false},
+{id:16,cat:'accessories',name:'LCE Costume',desc:'Vintage coustume .',extra:`zipper
+size : S-Xl
+condition : new
+price : 88€
+swears
+size : s-xl
+condition : new
+price : 75€.`,img:'acc2.jpg',price:'88€/75€',isSale:false},
+{id:17,cat:'accessories',name:'ED HARDY Cap',desc:'Vintage cap.', extra:`Size-one
+Condition-NEW.`,img:'cap1.jpg',price:'25€',isSale:false},
+{id:18,cat:'pants',name:'Black Pocket Pants',desc:'Arhive pants.',extra:`size : S-xl
+condition: new.`,img:'pants1.jpg',price:'72€',isSale:false},
+{id:19,cat:'pants',name:'Thewet double waiste pants',desc:'Pants.', extra:`size : s-xl
+condition: new.`,img:'pants2.jpg',price:'119€',isSale:false},
+{id:20,cat:'pants',name:'peoplesense double waist swears',desc:'Vintage pants.', extra:`size : s-xl
+condition: new.`,img:'pants3.jpg',price:'105€',isSale:false},
+{id:21,cat:'accessories',name:'chai music costume',desc:'Size: S–XL.',
+extra:`Zipper 79€.
+Sizes: S–XL.
+Condition: new.
+Swear 75€.
+Sizes: S–XL.
+Condition: new.
+Details: music costume.`,img:'zipp3.jpg',images: ['zipp3.jpg','zipp2.jpg','zipp1.jpg' ],price:'79/75€',isSale:false},
+{id:22,cat:'pants',name:'mirror swears',desc:'Vintage pants.',extra:`size : s-xl
+condition: s,m, xI-new
+1-8/10
+price: size 1-35€
+size s,m, xI-69€.`,img:'pants4.jpg',price:'35€',isSale:true}
+
 ]}};
 
 let currentLang='ua';
